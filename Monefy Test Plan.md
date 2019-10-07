@@ -1,7 +1,7 @@
 # Test Plan Monefy App
 ## Environment 
-Emulated Pixel 3a API29(Android 10) - Android Virtual Device Manager
-Oneplus 6T Android 9(physical device)
+- Emulated Pixel 3a API29(Android 10) - Android Virtual Device Manager
+- Oneplus 6T Android 9(physical device)
 
 ## Functional tests
 

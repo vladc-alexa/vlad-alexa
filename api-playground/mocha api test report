@@ -1,0 +1,545 @@
+ Feathers application tests
+    1) "before all" hook
+    2) "after all" hook for "starts and shows the index page"
+
+  categories service
+    √ registered the categories service
+    √ denies write attempts when in readonly mode
+    √ honors required fields when validating
+    3) allows category creation when valid category data is passed
+
+  categories get API
+    4) can get category by id
+    5) can get category by id and select only name and id
+    6) returns 404 for bad category id
+
+  categories query API
+    7) can get default list
+    8) allows pagination
+    9) can search on partial category name
+
+  products service
+    √ registered the products service
+    √ denies write attempts when in readonly mode
+    √ honors required fields when validating
+    √ enforces correct price format
+    √ allows product creation when valid product data is passed (139ms)
+
+  products get API
+    10) can get product by id
+    11) can get product by id and select only name and price
+    12) returns 404 for bad product id
+
+  products query API
+    13) can get default list
+    14) allows pagination
+    15) can search on partial product names
+    16) can search using category names
+    17) can search using category names alternative
+    18) can search using category id
+    19) can search using category id alternative
+    20) can sort by price
+    21) can select a subset of properties properties
+
+  services service
+    √ registered the services service
+    √ denies write attempts when in readonly mode
+    √ honors required fields when validating
+    √ allows service creation when valid service data is passed (94ms)
+
+  services get API
+    22) can get service by id
+    23) can get service by id and select only name and id
+    24) returns 404 for bad service id
+
+  services query API
+    25) can get default list
+    26) allows pagination
+    27) can search on partial service name
+
+  stores service
+    √ registered the stores service
+    √ denies write attempts when in readonly mode
+    √ honors required fields when validating
+    √ allows store creation when valid store data is passed (102ms)
+
+  stores get API
+    28) can get store by id
+    29) can get store by id and select only name and id
+    30) returns 404 for bad store id
+
+  stores query API
+    31) can get default list
+    32) allows pagination
+    33) can search on partial store names
+    34) can search nearby stores
+    35) can search based on services offered
+    36) can search based on services offered - alternative
+    37) can search based on service id offered
+    38) can search based on service id - alternative
+    39) can select a subset of stores properties
+
+  utilities get API
+    √ can get version of application
+    √ can get health of application (306ms)
+
+
+  18 passing (1s)
+  39 failing
+
+  1) Feathers application tests
+       "before all" hook:
+     Uncaught Error: listen EADDRINUSE: address already in use :::3030
+      at Server.setupListenHandle [as _listen2] (net.js:1298:14)
+      at listenInCluster (net.js:1346:12)
+      at Server.listen (net.js:1434:7)
+      at Function.listen (node_modules\express\lib\application.js:618:24)
+      at Function.listen (node_modules\feathers\lib\application.js:155:30)
+      at Function.listen (node_modules\uberproto\lib\proto.js:30:17)
+      at Context.<anonymous> (test\app.test.js:9:23)
+      at processImmediate (internal/timers.js:439:21)
+
+  2) Feathers application tests
+       "after all" hook for "starts and shows the index page":
+     Error [ERR_SERVER_NOT_RUNNING]: Server is not running.
+      at Server.close (net.js:1589:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+      at runNextTicks (internal/process/task_queues.js:62:3)
+      at processImmediate (internal/timers.js:412:9)
+
+  3) categories service
+       allows category creation when valid category data is passed:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 201 "Created", got 400 "Bad Request"
+      at Test.<anonymous> (test\services\categories\create.test.js:56:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  4) categories get API
+       can get category by id:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\categories\get.test.js:13:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  5) categories get API
+       can get category by id and select only name and id:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\categories\get.test.js:28:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  6) categories get API
+       returns 404 for bad category id:
+     Error: expected 404 "Not Found", got 500 "Internal Server Error"
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  7) categories query API
+       can get default list:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\categories\query.test.js:13:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  8) categories query API
+       allows pagination:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\categories\query.test.js:26:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  9) categories query API
+       can search on partial category name:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\categories\query.test.js:39:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  10) products get API
+       can get product by id:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\products\get.test.js:13:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  11) products get API
+       can get product by id and select only name and price:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\products\get.test.js:28:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  12) products get API
+       returns 404 for bad product id:
+     Error: expected 404 "Not Found", got 500 "Internal Server Error"
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  13) products query API
+       can get default list:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\products\query.test.js:13:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  14) products query API
+       allows pagination:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\products\query.test.js:26:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  15) products query API
+       can search on partial product names:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\products\query.test.js:39:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  16) products query API
+       can search using category names:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\products\query.test.js:52:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  17) products query API
+       can search using category names alternative:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\products\query.test.js:65:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  18) products query API
+       can search using category id:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\products\query.test.js:78:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  19) products query API
+       can search using category id alternative:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\products\query.test.js:91:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  20) products query API
+       can sort by price:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\products\query.test.js:104:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  21) products query API
+       can select a subset of properties properties:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\products\query.test.js:117:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  22) services get API
+       can get service by id:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\services\get.test.js:13:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  23) services get API
+       can get service by id and select only name and id:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\services\get.test.js:28:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  24) services get API
+       returns 404 for bad service id:
+     Error: expected 404 "Not Found", got 500 "Internal Server Error"
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  25) services query API
+       can get default list:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\services\query.test.js:13:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  26) services query API
+       allows pagination:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\services\query.test.js:26:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  27) services query API
+       can search on partial service name:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\services\query.test.js:39:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  28) stores get API
+       can get store by id:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\stores\get.test.js:13:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  29) stores get API
+       can get store by id and select only name and id:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\stores\get.test.js:28:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  30) stores get API
+       returns 404 for bad store id:
+     Error: expected 404 "Not Found", got 500 "Internal Server Error"
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  31) stores query API
+       can get default list:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\stores\query.test.js:13:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  32) stores query API
+       allows pagination:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\stores\query.test.js:26:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  33) stores query API
+       can search on partial store names:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\stores\query.test.js:39:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  34) stores query API
+       can search nearby stores:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\stores\query.test.js:51:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  35) stores query API
+       can search based on services offered:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\stores\query.test.js:64:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  36) stores query API
+       can search based on services offered - alternative:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\stores\query.test.js:76:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  37) stores query API
+       can search based on service id offered:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\stores\query.test.js:88:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  38) stores query API
+       can search based on service id - alternative:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\stores\query.test.js:100:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
+
+  39) stores query API
+       can select a subset of stores properties:
+     Uncaught AssertionError [ERR_ASSERTION]: ifError got unwanted exception: expected 200 "OK", got 500 "Internal Server Error"
+      at Test.<anonymous> (test\services\stores\query.test.js:112:27)
+      at Test.assert (node_modules\supertest\lib\test.js:179:6)
+      at Test._assertStatus (node_modules\supertest\lib\test.js:266:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:281:11)
+      at Test.assert (node_modules\supertest\lib\test.js:171:18)
+      at Server.assert (node_modules\supertest\lib\test.js:131:12)
+      at emitCloseNT (net.js:1642:8)
+      at processTicksAndRejections (internal/process/task_queues.js:79:21)
