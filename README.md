@@ -4,6 +4,7 @@ Uses Rest Assured, Junit, and JsonParser libraries
 
 Versioning provided with build.gradle file
 
-## Running tets - 
+## Running tets 
+
 gradle build
 gradle test
