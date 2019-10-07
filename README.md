@@ -7,4 +7,5 @@ Versioning provided with build.gradle file
 ## Running tets 
 
 gradle build
+
 gradle test
